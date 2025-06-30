@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+  <h1>Contact Us</h1>
+
+  <form action="#" method="post">
+
+    <fieldset>
+      <legend>Personal Information</legend>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="your@mail.com" required><br><br>
+
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567"><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend>Message Details</legend>
+
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="">Select subject</option>
+        <option value="general">General Inquiry</option>
+        <option value="job">Job Opportunity</option>
+        <option value="collab">Collaboration</option>
+        <option value="other">Other</option>
+      </select><br><br>
+
+      <p>Priority:</p>
+        <div>
+        <input type="radio" id="priority-low" name="priority" value="low">
+        <label for="priority-low">Low</label>
+
+        <input type="radio" id="priority-medium" name="priority" value="medium" checked style="margin-left:15px;">
+        <label for="priority-medium">Medium</label>
+
+        <input type="radio" id="priority-high" name="priority" value="high" style="margin-left:15px;">
+        <label for="priority-high">High</label>
+        </div>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" cols="40" placeholder="Your message..." required></textarea><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+      <legend>Preferences</legend> </fieldset>
+
+      <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+      <label for="newsletter">Subscribe to newsletter</label><br>
+
+      <label for="contact-method-select">Contact Method:</label>
+      <select id="contact-method-select" name="contact-platform">
+        <option value="">Choose a contact method</option>
+        <option value="email">Email</option>
+        <option value="phone">Phone Call</option>
+        <option value="sms">SMS</option>
+        <option value="whatsapp">WhatsApp</option>
+      </select><br><br>
+    </fieldset>
+
+    <br>
+
+    <input type="submit" value="Send Message">
+    <input type="reset" value="Reset">
+
+  </form>
+
+</body>
+</html>
