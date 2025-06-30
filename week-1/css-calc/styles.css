@@ -1,0 +1,26 @@
+.ex2-container {
+  width: 100%;
+  font-size: 0; /* remove inline-block spaces */
+  background-color: black; /* black separator lines */
+  padding: 1px; /* thickness of black border */
+}
+
+h1 {
+  text-align: center;
+}
+
+.section {
+  display: inline-block;
+  width: calc(100% / 3); /* account for borders and container padding */
+  aspect-ratio: 1 / 1;
+  border: 2px solid black; /* black border */
+  background-color: #ffc1cc;
+  box-sizing: border-box;
+}
+
+.outer-container {
+      width: 40%;
+      margin: 20px auto;
+      border: 3px solid #e75480;
+      box-sizing: border-box;
+}

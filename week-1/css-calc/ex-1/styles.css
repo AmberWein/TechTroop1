@@ -1,0 +1,21 @@
+body{
+    text-align:center
+}
+
+.ex1-container{
+    height:100px;
+}
+
+.left-section{
+    width:calc(100% - 20px);height:100%;
+    float:left;
+    background-color:#ffc1cc;
+}
+
+.right-section{width:20px;
+    height:100%;
+    float:left;
+    background-color:#e75480;
+    color:#fff;
+}
+
