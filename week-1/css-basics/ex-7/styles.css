@@ -1,0 +1,16 @@
+body {
+    background-image: url('https://miro.medium.com/v2/resize:fit:4800/format:webp/1*xMuIOwjliGUPjkzukeWKfw.jpeg');
+    background-size: cover;
+    
+    font-family:Cambria;
+    width: 70%;
+}
+
+.semi-transparent{
+    background-color: purple;
+    opacity: 0.3;
+}
+
+.non-transparent{
+  background-color: purple;
+}

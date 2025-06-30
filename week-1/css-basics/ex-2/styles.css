@@ -1,0 +1,28 @@
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: black;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.bookmarks {
+    display: flex;
+    gap: 10px;
+}
+
+.bookmarks a {
+    background-color: #f4e4bc;
+    color: #6366f1;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-size: 16px;
+}
+
+.bookmarks a:hover {
+    background-color: #f0d090;
+}
