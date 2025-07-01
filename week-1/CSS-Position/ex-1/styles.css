@@ -1,0 +1,45 @@
+.image-wrapper {
+  text-align: center;
+}
+
+.image-container {
+  margin: auto; /* Center the image container horizontally, not needed */
+  display: inline-block;
+  position: relative;
+}
+
+.dog-image {
+  max-width: 100%;
+}
+
+.top-left,
+.bottom-left,
+.top-right,
+.bottom-right,
+.centered {
+  position: absolute;
+}
+
+/* Top left text */
+.top-left {
+  top: 8px;
+  left: 16px;
+}
+
+/* Bottom left text */
+.bottom-left {
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  bottom: 8px;
+  right: 16px;
+}

@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  min-height: 50vh;
+  flex-direction: column;
+  margin: 0;
+  padding: 20px;
+}
+
+#top-level {
+  height: 60px;
+  display: flex;
+}
+
+#mid-level {
+  height: 20px;
+  display: flex;
+}
+
+#bottom-level {
+  height: 120px;
+  display: flex;
+}
+
+.child {
+  background-color: #0048e0;
+}
+
+.mid-level > .child {
+  background-color: red;
+}
+
+#left {
+  width: 60px;
+}
+#mid {
+  width: 20px;
+  background-color: red !important;
+}
+#right {
+  width: 280px;
+}
