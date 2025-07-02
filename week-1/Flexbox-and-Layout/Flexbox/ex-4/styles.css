@@ -1,0 +1,55 @@
+body {
+  font-family: serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  height: 90%;
+  border: 2px solid #f08181;
+  box-sizing: border-box;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-right: 2px solid #f08181;
+  padding-bottom: 20px;/
+}
+
+.rectangle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rectangle {
+  background-color: #f08181;
+  width: 60px;
+  height: 10px;
+}
+
+.rectangle-group .rectangle:last-child {
+  width: 40px;
+}
+
+.right {
+  flex: 3;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text {
+  font-size: 10px;
+  max-width: 80%;
+}

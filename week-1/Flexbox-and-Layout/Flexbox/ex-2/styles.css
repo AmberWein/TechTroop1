@@ -1,0 +1,30 @@
+div {
+  font-size: 5px;
+}
+
+.first-row, .second-row {
+  display: flex;
+  flex-direction: row;
+  border: #e1d8d8 px solid;;
+  background-color: #6495ec;
+  border: 1px solid #ccc;
+  justify-content: flex-start;
+  width: 40%;
+  height: 20px;
+}
+
+.first-element, .second-element {
+  border: 1px solid #e1d8d8;
+}
+
+.first-element {
+  flex-grow: 1;
+}
+
+.second-element:first-child{
+  flex-grow: 1 !important;
+}
+
+.second-element{
+  flex-grow: 2;
+}

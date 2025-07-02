@@ -1,0 +1,67 @@
+body {
+  font-family: serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 90%;
+  box-sizing: border-box;
+  border: 2px solid #f08181;
+}
+
+.top-page {
+  flex: 4;
+  flex-direction: column;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #f08181;
+  gap: 20px;
+}
+
+
+.circle {
+  background-color: #f08181;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: 10px;
+  max-width: 80%;
+  text-align: left;
+}
+
+.buttom-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rectangle-group {
+  display: flex;
+  width: 90%;
+  align-self: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rectangle {
+  background-color: #f08181;
+  width: 10%;
+  height: 10px;
+}
+.rectangle-group .rectangle:nth-child(2) {
+  width: 40%;
+  background-color: white;
+}
