@@ -136,8 +136,11 @@ body {
     gap: 2rem;
 }
 
-.left-column, .right-column {
-    width: 50%;
+.left-column {
+    width: 70%;
+}
+.right-column {
+    width: 30%;
 }
 
 
