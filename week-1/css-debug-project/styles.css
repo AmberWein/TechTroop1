@@ -136,6 +136,10 @@ body {
     gap: 2rem;
 }
 
+.left-column, .right-column {
+    width: 50%;
+}
+
 
 .widget {
     background: white;
