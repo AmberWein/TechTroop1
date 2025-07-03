@@ -110,6 +110,7 @@ body {
 .stats-grid {
     display: flex;
     gap: 1.5rem;
+    padding: 20px;
 }
 
 .stat-card {
