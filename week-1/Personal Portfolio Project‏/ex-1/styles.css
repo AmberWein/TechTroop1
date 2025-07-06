@@ -58,7 +58,9 @@ h3 {
   background: #e7ecf2;
   border-radius: 1rem;
   padding: 4rem 4rem;
-  gap: 10rem;
+  justify-content: space-evenly;
+
+
 }
 
 .intro-text {
