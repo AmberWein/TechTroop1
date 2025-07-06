@@ -273,10 +273,35 @@ cta:hover {
 }
 
 .footer-note {
-        background-color: #1e293b;
-        color: white;
-        text-align: center;
-        padding: 2rem;
-        
-      }
+  background-color: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
 
+/* Mobile Responsive Styles */
+@media (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-text, .skills{
+    text-align: center;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem;
+  }
+
+  .contact-info {
+    align-self: center;
+  }
+}
