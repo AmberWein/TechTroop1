@@ -9,7 +9,8 @@ body {
   color: #1f2937;
   background-color: #ffffff;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  
 }
 
 .container {
@@ -88,3 +89,56 @@ cta:hover {
   background-color: #1d4ed8;
 }
 
+/* About Section */
+.about {
+  display: flex;
+  padding: 4rem 4rem 4rem 4rem;
+  gap: 50px;
+
+}
+
+.about-text {
+  flex: 2;
+}
+
+.skills {
+  flex: 1;
+}
+
+.skills ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.skill-label {
+  width: 100px;
+}
+
+.bar-wrapper {
+  width: 150px;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background-color: #2563eb;
+  border-radius: 4px;
+}
+
+.js { width: 70%; }
+.python { width: 90%; }
+.react { width: 60%; }
+.postgress { width: 55%; }
+.mongo { width: 50%; }
