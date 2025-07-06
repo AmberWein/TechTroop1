@@ -5,12 +5,11 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #1f2937;
   background-color: #ffffff;
   line-height: 1.6;
   font-size: 1.5rem;
-  
 }
 
 .container {
@@ -20,9 +19,18 @@ body {
 }
 
 /* Typography */
-h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-h2 { font-size: 2rem; margin-bottom: 1rem; }
-h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
 
 .header {
   display: flex;
@@ -51,7 +59,6 @@ h3 { font-size: 1.5rem; margin-bottom: 1rem; }
   border-radius: 1rem;
   padding: 4rem 4rem;
   gap: 10rem;
-  
 }
 
 .intro-text {
@@ -94,7 +101,6 @@ cta:hover {
   display: flex;
   padding: 4rem 4rem 4rem 4rem;
   gap: 50px;
-
 }
 
 .about-text {
@@ -137,8 +143,73 @@ cta:hover {
   border-radius: 4px;
 }
 
-.js { width: 70%; }
-.python { width: 90%; }
-.react { width: 60%; }
-.postgress { width: 55%; }
-.mongo { width: 50%; }
+.js {
+  width: 70%;
+}
+.python {
+  width: 90%;
+}
+.react {
+  width: 60%;
+}
+.postgress {
+  width: 55%;
+}
+.mongo {
+  width: 50%;
+}
+
+/* Projects Section */
+.projects > h2,
+.contact > h2 {
+  text-align: center;
+}
+
+.projects {
+    background-color: #f7fafc;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  flex: calc(33%);
+  padding: 2rem;
+  border-radius: 20px;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  background-color: #e2e8f0;
+  height: 200px;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.project-btn {
+  display: inline-block;
+  background: #f59e0b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: auto;
+}
+
+.project-btn:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
