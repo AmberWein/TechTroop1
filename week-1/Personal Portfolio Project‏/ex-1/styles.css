@@ -52,6 +52,21 @@ h3 {
   font-weight: 500;
 }
 
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.mobile-menu span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
 /* Intro */
 .intro {
   display: flex;
@@ -287,6 +302,18 @@ cta:hover {
   .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .header {
+    flex-direction: row;
   }
 
   .about-text, .skills{
