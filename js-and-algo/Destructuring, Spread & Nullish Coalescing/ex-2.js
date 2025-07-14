@@ -3,5 +3,4 @@ var seoncdPiece = { country: 'Israel' };
 
 var fullPassport = { ...firstPiece, ...seoncdPiece };
 
-console.log(fullPassport);
-// { id: 101, name: 'Ofri', country: 'Israel' }
+console.log(fullPassport); // { id: 101, name: 'Ofri', country: 'Israel' }
