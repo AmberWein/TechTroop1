@@ -30,4 +30,8 @@ describe('validate', () => {
     const result = validate([true, false, "true", 1, null]);
     expect(result).toEqual(false);
   });
+
+  test('returns error when input is null', () => {
+  expect(validate(null)).toEqual({ error: "Need at least one boolean" });
+});
 });

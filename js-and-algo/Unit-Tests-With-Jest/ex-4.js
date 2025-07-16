@@ -2,6 +2,11 @@
 // Returns an error if none are found. If booleans exist, returns true when trues outnumber falses; otherwise returns false.
 
 function validate(arr) {
+    // handle null or non-array input
+    if (!Array.isArray(arr)) {
+        return { error: "Need at least one boolean" };
+    }
+    
     const booleans = arr.filter(item => typeof item === 'boolean');
 
     if (booleans.length === 0) {

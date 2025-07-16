@@ -1,25 +1,28 @@
-const { isEven, removeAtLeastOne, simplify} = require('./ex-1-3');
+const { isEven, removeAtLeastOne, simplify } = require("./ex-1-3");
 
-describe('isEven', () => {
-  it('return true for even numbers', () => {
+describe("isEven", () => {
+  it("return true for even numbers", () => {
     expect(isEven(2)).toEqual(true);
     expect(isEven(0)).toEqual(true);
     expect(isEven(-2)).toEqual(true);
   });
 
-    it('return false for odd numbers', () => {
+  it("return false for odd numbers", () => {
     expect(isEven(1)).toEqual(false);
     expect(isEven(-3)).toEqual(false);
   });
 
-  it('handles non-integer values', () => {
+  it("handles non-integer values", () => {
     expect(isEven(2.5)).toEqual(false);
   });
 
+  it("returns false when input is not a number (string)", () => {
+    expect(isEven("2")).toEqual(false);
+  });
 });
 
-describe('removeAtLeastOne', () => {
-test('removes at least one element from the array', () => {
+describe("removeAtLeastOne", () => {
+  test("removes at least one element from the array", () => {
     const input = [1, 2, 3, 4, 5];
     const originalLength = input.length;
 
@@ -30,48 +33,49 @@ test('removes at least one element from the array', () => {
     expect(result.length).toBeGreaterThanOrEqual(1);
   });
 
+  test("returns error or empty when input is not an array", () => {
+    expect(() => removeAtLeastOne(null)).toThrow();
+  });
 });
 
-describe('simplify', () => {
-  test('removes specified symbols from the string', () => {
+describe("simplify", () => {
+  test("removes specified symbols from the string", () => {
     const input = "Hello, world!";
     const expected = "Hello world";
     expect(simplify(input)).toEqual(expected);
   });
 
-  test('removes multiple symbols in the string', () => {
+  test("removes multiple symbols in the string", () => {
     const input = "Wow! That’s amazing, isn’t it?";
     const expected = "Wow That’s amazing isn’t it?";
     expect(simplify(input)).toEqual(expected);
   });
 
-  test('returns the same string if there are no symbols', () => {
+  test("returns the same string if there are no symbols", () => {
     const input = "Just a regular sentence";
     expect(simplify(input)).toEqual(input);
   });
 
-  test('returns empty string if input is only symbols', () => {
+  test("returns empty string if input is only symbols", () => {
     const input = "!#.,'";
     expect(simplify(input)).toEqual("");
   });
 
-  test('works with an empty string', () => {
+  test("works with an empty string", () => {
     const input = "";
     expect(simplify(input)).toEqual("");
   });
 
-  test('always returns a string', () => {
-  const inputs = [
-    "Hello, world!",
-    "No symbols here",
-    "!#.,'",
-    "",
-    "12345"
-  ];
+  test("always returns a string", () => {
+    const inputs = ["Hello, world!", "No symbols here", "!#.,'", "", "12345"];
 
-  inputs.forEach(input => {
-    const result = simplify(input);
-    expect(typeof result).toEqual("string");
+    inputs.forEach((input) => {
+      const result = simplify(input);
+      expect(typeof result).toEqual("string");
+    });
   });
-});
+
+  test("returns empty string for undefined input", () => {
+    expect(() => simplify(undefined)).toThrow();
+  });
 });
