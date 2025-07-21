@@ -56,3 +56,5 @@ class AutoCompleteTrie {
     return results;
   }
 }
+
+module.exports = AutoCompleteTrie;
