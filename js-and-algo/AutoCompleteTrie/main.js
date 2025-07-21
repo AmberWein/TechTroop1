@@ -28,5 +28,19 @@ rl.on("line", (line) => {
         console.log(`✓ Added '${word}' to dictionary`);
       }
       break;
+
+    case "find":
+            if (args.length === 0) {
+                console.log("✗ Please provide a word to find");
+            } else {
+                const word = args[0];
+                const found = trie.findWord(word);
+                if (found) {
+                    console.log(`✓ '${word}' exists in dictionary`);
+                } else {
+                    console.log(`✗ '${word}' not found in dictionary`);
+                }
+            }
+            break;
   }
 });
