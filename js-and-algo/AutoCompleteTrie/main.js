@@ -65,5 +65,10 @@ rl.on("line", (line) => {
       console.log("  help              - Show this message");
       console.log("  exit              - Quit program");
       break;
+      
+    case "exit":
+            console.log("Goodbye!");
+            rl.close();
+            break;
   }
 });
