@@ -20,6 +20,7 @@ describe("addWord", () => {
     trie.addWord("cat");
     expect(trie.findWord("ca")).toBe(false);
   });
+});
 
   describe("findWord", () => {
     let trie = new AutoCompleteTrie();
@@ -47,5 +48,39 @@ describe("addWord", () => {
       expect(trie.findWord("ca")).toBe(false);
       expect(trie.findWord("c")).toBe(false);
     });
+  });
+
+
+  describe("predictWords", () => {
+  let trie;
+
+  beforeEach(() => {
+    trie = new AutoCompleteTrie();
+    trie.addWord("cat");
+    trie.addWord("car");
+    trie.addWord("card");
+    trie.addWord("care");
+    trie.addWord("dog");
+  });
+
+  test("returns all words with a given prefix", () => {
+    const predictions = trie.predictWords("car");
+    expect(predictions.sort()).toEqual(["car", "card", "care"].sort());
+  });
+
+  test("returns an empty array when no words match the prefix", () => {
+    expect(trie.predictWords("z")).toEqual([]);
+    expect(trie.predictWords("cart")).toEqual([]);
+  });
+
+  test("returns all words if prefix is empty", () => {
+    const predictions = trie.predictWords("");
+    expect(predictions.sort()).toEqual(["cat", "car", "card", "care", "dog"].sort());
+  });
+
+  test("returns only full words, not prefixes", () => {
+    const predictions = trie.predictWords("c");
+    expect(predictions).toEqual(expect.arrayContaining(["cat", "car", "card", "care"]));
+    expect(predictions).not.toContain("c");
   });
 });
