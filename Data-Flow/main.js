@@ -16,6 +16,12 @@ function render() {
     postDiv.className = "post";
     postDiv.innerHTML = `<strong>${post.name}</strong>: ${post.text}`;
 
+    // remove post on click
+    postDiv.addEventListener("click", () => {
+      posts.splice(index, 1);
+      render();
+    });
+
     postsContainer.appendChild(postDiv);
   });
 }
