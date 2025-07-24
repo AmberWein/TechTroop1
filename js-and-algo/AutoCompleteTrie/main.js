@@ -84,7 +84,7 @@ const trie = new AutoCompleteTrie();
 
 const addInput = document.getElementById("add");
 const addButton = document.getElementById("addButton");
-const searchInput = document.getElementById("search");
+const autocompleteInput = document.getElementById("autocomplete");
 const suggestionsList = document.getElementById("suggestions");
 const statusMessage = document.getElementById("wordsCount");
 
@@ -123,16 +123,20 @@ addButton.addEventListener("click", () => {
     updateWordCount();
 });
 
-// searchInput.addEventListener("input", () => {
-//   const prefix = searchInput.value.trim();
-//   suggestionsList.innerHTML = "";
+autocompleteInput.addEventListener("input", () => {
+  const prefix = autocompleteInput.value.trim();
+  suggestionsList.innerHTML = "";
 
-//   if (prefix === "") return;
+  if (prefix === "") return;
 
-//   const suggestions = trie.predictWords(prefix);
-//   suggestions.forEach(word => {
-//     const li = document.createElement("li");
-//     li.textContent = word;
-//     suggestionsList.appendChild(li);
-//   });
-// });
+  const suggestions = trie.predictWords(prefix);
+suggestions.forEach(word => {
+  const li = document.createElement("li");
+
+  const prefixRegex = new RegExp(`^(${prefix})`, "i");
+  const highlightedWord = word.replace(prefixRegex, "<strong>$1</strong>");
+
+  li.innerHTML = highlightedWord;
+  suggestionsList.appendChild(li);
+});
+});
