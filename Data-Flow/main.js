@@ -3,6 +3,8 @@ const posts = [
   { name: "Bob", text: "Nice to meet you all." },
 ];
 
+const nameInput = document.getElementById("nameInput");
+const textInput = document.getElementById("textInput");
 const postsContainer = document.getElementById("postsContainer");
 
 function render() {
@@ -17,5 +19,18 @@ function render() {
     postsContainer.appendChild(postDiv);
   });
 }
+
+submitBtn.addEventListener("click", () => {
+
+  const name = nameInput.value.trim();
+  const text = textInput.value.trim();
+
+  if (name && text) {
+    posts.push({ name, text });
+    nameInput.value = "";
+    textInput.value = "";
+    render();
+  }
+});
 
 render(); // initial render
