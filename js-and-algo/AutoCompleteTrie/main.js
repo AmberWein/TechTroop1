@@ -79,9 +79,6 @@
 
 const trie = new AutoCompleteTrie();
 
-// add sample words
-["hello", "hell", "heaven", "heavy", "happy", "happen", "hero", "her"].forEach(word => trie.addWord(word));
-
 const addInput = document.getElementById("add");
 const addButton = document.getElementById("addButton");
 const autocompleteInput = document.getElementById("autocomplete");
@@ -97,8 +94,8 @@ updateWordCount();
 
 addButton.addEventListener("click", () => {
   const word = addInput.value.trim();
-  const addStatusMessage = document.getElementById("addStatusMessage")
-  
+  const addStatusMessage = document.getElementById("addStatusMessage");
+
   addStatusMessage.classList.remove("error");
   addStatusMessage.style.display = "none";
 
@@ -115,28 +112,31 @@ addButton.addEventListener("click", () => {
     addStatusMessage.style.display = "block";
     return;
   }
-    trie.addWord(word);
-    addStatusMessage.textContent = `✓ Added '${word}' to dictionary`;
-    addStatusMessage.style.display = "block";
-    addInput.value = "";
+  trie.addWord(word);
+  addStatusMessage.textContent = `✓ Added '${word}' to dictionary`;
+  addStatusMessage.style.display = "block";
+  addInput.value = "";
 
-    updateWordCount();
+  updateWordCount();
 });
 
 autocompleteInput.addEventListener("input", () => {
   const prefix = autocompleteInput.value.trim();
   suggestionsList.innerHTML = "";
 
-  if (prefix === "") return;
+  if (prefix === "") {
+    suggestionsList.style.display = "none";
+  }
 
+  suggestionsList.style.display = "block";
   const suggestions = trie.predictWords(prefix);
-suggestions.forEach(word => {
-  const li = document.createElement("li");
+  suggestions.forEach((word) => {
+    const li = document.createElement("li");
 
-  const prefixRegex = new RegExp(`^(${prefix})`, "i");
-  const highlightedWord = word.replace(prefixRegex, "<strong>$1</strong>");
+    const prefixRegex = new RegExp(`^(${prefix})`, "i");
+    const highlightedWord = word.replace(prefixRegex, '<strong style="background-color: #feeeee;">$1</strong>');
 
-  li.innerHTML = highlightedWord;
-  suggestionsList.appendChild(li);
-});
+    li.innerHTML = highlightedWord;
+    suggestionsList.appendChild(li);
+  });
 });
