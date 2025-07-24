@@ -14,7 +14,7 @@ function render() {
   posts.forEach((post, index) => {
     const postDiv = document.createElement("div");
     postDiv.className = "post";
-    postDiv.innerText = `${post.name}: ${post.text}`;
+    postDiv.innerHTML = `<strong>${post.name}</strong>: ${post.text}`;
 
     postsContainer.appendChild(postDiv);
   });
