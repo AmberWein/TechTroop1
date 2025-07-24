@@ -95,14 +95,33 @@ function updateWordCount() {
 
 updateWordCount();
 
-// addButton.addEventListener("click", () => {
-//   const word = addInput.value.trim();
-//   if (word !== "") {
-//     trie.addWord(word);
-//     alert(`✓ '${word}' added to dictionary`);
-//     addInput.value = "";
-//   }
-// });
+addButton.addEventListener("click", () => {
+  const word = addInput.value.trim();
+  const addStatusMessage = document.getElementById("addStatusMessage")
+  
+  addStatusMessage.classList.remove("error");
+  addStatusMessage.style.display = "none";
+
+  if (word === "") {
+    addStatusMessage.textContent = `✗ cannot add empty word`;
+    addStatusMessage.classList.add("error");
+    addStatusMessage.style.display = "block";
+    addInput.value = "";
+    return;
+  }
+  if (trie.findWord(word)) {
+    addStatusMessage.textContent = `✗ '${word}' already exists in dictionary`;
+    addStatusMessage.classList.add("error");
+    addStatusMessage.style.display = "block";
+    return;
+  }
+    trie.addWord(word);
+    addStatusMessage.textContent = `✓ Added '${word}' to dictionary`;
+    addStatusMessage.style.display = "block";
+    addInput.value = "";
+
+    updateWordCount();
+});
 
 // searchInput.addEventListener("input", () => {
 //   const prefix = searchInput.value.trim();

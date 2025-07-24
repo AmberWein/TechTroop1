@@ -10,7 +10,7 @@ body {
   gap: 30px;
 }
 
-.add-container,
+.add-input,
 .search-container {
   display: flex;
   width: 100%;
@@ -33,16 +33,18 @@ input {
   border: none;
   max-width: 100px;
 }
+
 .status-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 #wordsCount {
-    font-size: 35px;
-    margin-top: 10px;
-    color: #667eea;
-    font-weight: bold;
+  font-size: 35px;
+  margin-top: 10px;
+  color: #667eea;
+  font-weight: bold;
 }
 
 ul {
@@ -51,4 +53,19 @@ ul {
 }
 li {
   padding: 5px 0;
+}
+
+.addStatusMessage {
+  display: none;
+  margin-top: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.addStatusMessage.error {
+  background-color: #f8d7da;
+  color: #721c24;
 }
