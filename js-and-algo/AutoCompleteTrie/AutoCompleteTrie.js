@@ -55,6 +55,15 @@ class AutoCompleteTrie {
     this._findAllWords(subTree, prefix, results);
     return results;
   }
+
+  countWords() {
+  let count = this.endOfWord ? 1 : 0;
+  for (let child in this.children) {
+    count += this.children[child].countWords();
+  }
+  return count;
+}
 }
 
-module.exports = AutoCompleteTrie;
+// module.exports = AutoCompleteTrie;
+window.AutoCompleteTrie = AutoCompleteTrie; // make available globally

@@ -1,78 +1,119 @@
-const readline = require("readline");
-const AutoCompleteTrie = require("./AutoCompleteTrie");
+// const readline = require("readline");
+// const AutoCompleteTrie = require("./AutoCompleteTrie");
+
+// const trie = new AutoCompleteTrie();
+
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+//   prompt: "> ",
+// });
+
+// console.log("=== AutoComplete Trie Console ===");
+// console.log("Type 'help' for commands\n");
+
+// rl.prompt();
+
+// rl.on("line", (line) => {
+//   const input = line.trim();
+//   const [command, ...args] = input.split(" ");
+
+//   switch (command) {
+//     case "add":
+//       if (args.length === 0) {
+//         console.log("✗ Please provide a word to add");
+//       } else {
+//         const word = args[0];
+//         trie.addWord(word);
+//         console.log(`✓ Added '${word}' to dictionary`);
+//       }
+//       break;
+
+//     case "find":
+//       if (args.length === 0) {
+//         console.log("✗ Please provide a word to find");
+//       } else {
+//         const word = args[0];
+//         const found = trie.findWord(word);
+//         if (found) {
+//           console.log(`✓ '${word}' exists in dictionary`);
+//         } else {
+//           console.log(`✗ '${word}' not found in dictionary`);
+//         }
+//       }
+//       break;
+
+//     case "complete":
+//       if (args.length === 0) {
+//         console.log("✗ Please provide a prefix");
+//       } else {
+//         const prefix = args[0];
+//         const suggestions = trie.predictWords(prefix);
+//         if (suggestions.length) {
+//           console.log(`Suggestions for '${prefix}': ${suggestions.join(", ")}`);
+//         } else {
+//           console.log(`✗ No suggestions found for '${prefix}'`);
+//         }
+//       }
+//       break;
+
+//     case "help":
+//       console.log("Commands:");
+//       console.log("  add <word>        - Add word to dictionary");
+//       console.log("  find <word>       - Check if word exists");
+//       console.log("  complete <prefix> - Get completions");
+//       console.log("  help              - Show this message");
+//       console.log("  exit              - Quit program");
+//       break;
+
+//     case "exit":
+//       console.log("Goodbye!");
+//       rl.close();
+//       break;
+
+//     default:
+//       console.log(`✗ Unknown command: ${command}. Type 'help' for options`);
+//   }
+//   rl.prompt();
+// });
 
 const trie = new AutoCompleteTrie();
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: "> ",
-});
+// add sample words
+["hello", "hell", "heaven", "heavy", "happy", "happen", "hero", "her"].forEach(word => trie.addWord(word));
 
-console.log("=== AutoComplete Trie Console ===");
-console.log("Type 'help' for commands\n");
+const addInput = document.getElementById("add");
+const addButton = document.getElementById("addButton");
+const searchInput = document.getElementById("search");
+const suggestionsList = document.getElementById("suggestions");
+const statusMessage = document.getElementById("wordsCount");
 
-rl.prompt();
+function updateWordCount() {
+  const count = trie.countWords();
+  statusMessage.textContent = `${count}`;
+}
 
-rl.on("line", (line) => {
-  const input = line.trim();
-  const [command, ...args] = input.split(" ");
+updateWordCount();
 
-  switch (command) {
-    case "add":
-      if (args.length === 0) {
-        console.log("✗ Please provide a word to add");
-      } else {
-        const word = args[0];
-        trie.addWord(word);
-        console.log(`✓ Added '${word}' to dictionary`);
-      }
-      break;
+// addButton.addEventListener("click", () => {
+//   const word = addInput.value.trim();
+//   if (word !== "") {
+//     trie.addWord(word);
+//     alert(`✓ '${word}' added to dictionary`);
+//     addInput.value = "";
+//   }
+// });
 
-    case "find":
-      if (args.length === 0) {
-        console.log("✗ Please provide a word to find");
-      } else {
-        const word = args[0];
-        const found = trie.findWord(word);
-        if (found) {
-          console.log(`✓ '${word}' exists in dictionary`);
-        } else {
-          console.log(`✗ '${word}' not found in dictionary`);
-        }
-      }
-      break;
+// searchInput.addEventListener("input", () => {
+//   const prefix = searchInput.value.trim();
+//   suggestionsList.innerHTML = "";
 
-    case "complete":
-      if (args.length === 0) {
-        console.log("✗ Please provide a prefix");
-      } else {
-        const prefix = args[0];
-        const suggestions = trie.predictWords(prefix);
-        if (suggestions.length) {
-          console.log(`Suggestions for '${prefix}': ${suggestions.join(", ")}`);
-        } else {
-          console.log(`✗ No suggestions found for '${prefix}'`);
-        }
-      }
-      break;
+//   if (prefix === "") return;
 
-    case "help":
-      console.log("Commands:");
-      console.log("  add <word>        - Add word to dictionary");
-      console.log("  find <word>       - Check if word exists");
-      console.log("  complete <prefix> - Get completions");
-      console.log("  help              - Show this message");
-      console.log("  exit              - Quit program");
-      break;
-
-    case "exit":
-      console.log("Goodbye!");
-      rl.close();
-      break;
-
-    default:
-      console.log(`✗ Unknown command: ${command}. Type 'help' for options`);
-  }
-  rl.prompt();
-});
+//   const suggestions = trie.predictWords(prefix);
+//   suggestions.forEach(word => {
+//     const li = document.createElement("li");
+//     li.textContent = word;
+//     suggestionsList.appendChild(li);
+//   });
+// });
