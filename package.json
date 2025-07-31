@@ -2,8 +2,12 @@
   "devDependencies": {
     "jest": "^30.0.4"
   },
-
   "scripts": {
-  "test": "jest"
-}
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "node-fetch": "^2.7.0"
+  }
 }
