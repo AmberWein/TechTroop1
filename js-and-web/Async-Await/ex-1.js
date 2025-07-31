@@ -15,3 +15,6 @@ async function getUserById(userId) {
     return null;
   }
 }
+
+getUserById(3);
+getUserById(999); 
