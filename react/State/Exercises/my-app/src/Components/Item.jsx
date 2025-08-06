@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 
-function Item({ item }) {
+function Item({ item, shouldDiscount }) {
+  const finalPrice = shouldDiscount
+    ? item.price * (1 - item.discount)
+    : item.price;
+
   return (
     <div>
-      {item.item}: ${item.price}
+      {item.item}: ${finalPrice.toFixed(2)}
     </div>
   );
 }

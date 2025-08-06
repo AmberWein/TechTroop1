@@ -32,7 +32,7 @@ function App() {
 
       <div className="ex-2">
       <Landing user={state.user} store={state.store} />
-      <Home store={state.store} />
+      <Home store={state.store} shouldDiscount={state.shouldDiscount}/>
     </div>
     </div>
   );
