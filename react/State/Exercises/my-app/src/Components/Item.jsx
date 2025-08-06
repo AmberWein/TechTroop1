@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Item({ item, price }) {
+function Item({ item }) {
   return (
     <div>
-      {item}: ${price}
+      {item.item}: ${item.price}
     </div>
   );
 }

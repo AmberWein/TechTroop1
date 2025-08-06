@@ -1,11 +1,12 @@
 import React from 'react';
 import Item from './Item.jsx';
+
 function Home({ store }) {
   return (
     <div>
-        <h4>Store</h4>
+      <h4>Store</h4>
       {store.map(product => (
-        <Item key={product.item} item={product.item} price={product.price} />
+        <Item key={product.item} item={product} />
       ))}
     </div>
   );
