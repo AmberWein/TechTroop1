@@ -1,14 +1,26 @@
-import './App.css'
-import SpotCheck1 from './Components/SpotCheck1';
+import SpotCheck1 from "./Components/SpotCheck1";
+import Company from "./Components/Company";
+import Calendar from "./Components/Calendar";
+import Register from "./Components/Register";
+
 import { useState } from "react";
-import Company from './Components/Company';
+import "./App.css";
 
 function App() {
-  let companiesData = [{ name: "Tesla", revenue: 140 },
-      { name: "Microsoft", revenue: 300 },
-      { name: "Google", revenue: 600 }];
-    
+  let companiesData = [
+    { name: "Tesla", revenue: 140 },
+    { name: "Microsoft", revenue: 300 },
+    { name: "Google", revenue: 600 },
+  ];
+
   let [companies, setCompanies] = useState(companiesData);
+
+  const [reservations, setReservations] = useState([
+    { day: "Monday", time: 2000, name: "Earl" },
+    { day: "Monday", time: 1845, name: "Ella" },
+    { day: "Tuesday", time: 1930, name: "Linda" },
+    { day: "Wednesday", time: 2015, name: "Anni" },
+  ]);
 
   return (
     <div className="main-container">
@@ -20,11 +32,22 @@ function App() {
 
       <div className="spot-check-2">
         <h1>Spot Check 2</h1>
-        <p>Render a Company component for each of the above items using state.</p>
-        {companies.map(company => <Company name={company.name} revenue={company.revenue}></Company>)}
+        <p>
+          Render a Company component for each of the above items using state.
+        </p>
+        {companies.map((company) => (
+          <Company name={company.name} revenue={company.revenue}></Company>
+        ))}
+      </div>
+
+      <div className="spot-check-3">
+        <h1>Spot Check 3</h1>
+        <p>Display shared state data in child components using props.</p>
+        <Calendar reservations={reservations} />
+        <Register reservations={reservations} />
       </div>
     </div>
   );
 }
 
-export default App
+export default App;
