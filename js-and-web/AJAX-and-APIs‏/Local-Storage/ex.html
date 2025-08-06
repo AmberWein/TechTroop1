@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <input type="text" id="wisdom-input" placeholder="Write something wise..." />
+  <button id="add-btn">Add Wisdom</button>
+  <button id="clear-btn">Clear Wisdom</button>
+
+  <div id="wisdom-list"></div>
+
+  <script>
+    const input = document.getElementById('wisdom-input');
+    const addBtn = document.getElementById('add-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const wisdomList = document.getElementById('wisdom-list');
+
+    let wisdom = [];
+
+    // load wisdom from Local Storage on page load
+    const savedWisdom = JSON.parse(localStorage.getItem('wisdom'));
+    if (savedWisdom) {
+      wisdom = savedWisdom;
+      renderWisdom();
+    }
+
+    addBtn.addEventListener('click', () => {
+      const text = input.value.trim();
+      if (!text) return;
+
+      const wisdomObj = {
+        id: Date.now(),
+        text: text
+      };
+      wisdom.push(wisdomObj);
+      input.value = '';
+      renderWisdom();
+
+      if (wisdom.length % 2 === 0) {
+        localStorage.setItem('wisdom', JSON.stringify(wisdom));
+      }
+    });
+
+    clearBtn.addEventListener('click', () => {
+      wisdom = [];
+      localStorage.removeItem('wisdom');
+      renderWisdom();
+    });
+
+    function deleteWisdom(id) {
+      wisdom = wisdom.filter(item => item.id !== id);
+      localStorage.setItem('wisdom', JSON.stringify(wisdom));
+      renderWisdom();
+    }
+
+    function renderWisdom() {
+      wisdomList.innerHTML = '';
+      wisdom.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'wisdom-item';
+        div.innerHTML = `
+          ${item.text}
+          <span class="delete-btn" onclick="deleteWisdom(${item.id})">X</span>
+        `;
+        wisdomList.appendChild(div);
+      });
+    }
+
+    window.deleteWisdom = deleteWisdom;
+  </script>
+</body>
