@@ -2,6 +2,8 @@ import SpotCheck1 from "./Components/SpotCheck1";
 import Company from "./Components/Company";
 import Calendar from "./Components/Calendar";
 import Register from "./Components/Register";
+import Hot from "./Components/Hot";
+import Cold from "./Components/Cold";
 
 import { useState } from "react";
 import "./App.css";
@@ -22,6 +24,12 @@ function App() {
     { day: "Wednesday", time: 2015, name: "Anni" },
   ]);
 
+  const [temperature, setTemperature] = useState("hot");
+
+  const toggleTemperature = () => {
+    setTemperature((prev) => (prev === "hot" ? "cold" : "hot"));
+  };
+
   return (
     <div className="main-container">
       <div className="spot-check-1">
@@ -36,7 +44,11 @@ function App() {
           Render a Company component for each of the above items using state.
         </p>
         {companies.map((company) => (
-          <Company name={company.name} revenue={company.revenue}></Company>
+          <Company
+            key={company.name}
+            name={company.name}
+            revenue={company.revenue}
+          />
         ))}
       </div>
 
@@ -45,6 +57,15 @@ function App() {
         <p>Display shared state data in child components using props.</p>
         <Calendar reservations={reservations} />
         <Register reservations={reservations} />
+      </div>
+
+      <div className="spot-check-4">
+        <h1>Spot Check 4</h1>
+        <p>
+          Toggles between two components based on state using a button click.
+        </p>
+        {temperature === "hot" ? <Hot /> : <Cold />}
+        <button onClick={toggleTemperature}>Change temperature!</button>
       </div>
     </div>
   );
