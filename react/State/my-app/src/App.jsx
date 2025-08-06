@@ -30,6 +30,11 @@ function App() {
     setTemperature((prev) => (prev === "hot" ? "cold" : "hot"));
   };
 
+  const [likes, setLikes] = useState(0);
+  const increaseLike = () => {
+    setLikes(likes + 1);
+  };
+
   return (
     <div className="main-container">
       <div className="spot-check-1">
@@ -66,6 +71,18 @@ function App() {
         </p>
         {temperature === "hot" ? <Hot /> : <Cold />}
         <button onClick={toggleTemperature}>Change temperature!</button>
+      </div>
+
+      <div className="spot-check-5">
+        <h1>Spot Check 5</h1>
+        <p>Creates a Like counter using React's state. </p>
+        <p>
+          {" "}
+          Each time the "Like" button is clicked, the number of likes is
+          increased and displayed on the screen.
+        </p>
+        <div>{likes}</div>
+        <button onClick={increaseLike}>Like</button>
       </div>
     </div>
   );
