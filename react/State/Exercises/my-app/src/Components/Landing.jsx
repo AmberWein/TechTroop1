@@ -5,8 +5,8 @@ function Landing({ user, store }) {
 
   return (
     <div>
-      Welcome, {user}.
-      The hottest item is {hottestItem ? hottestItem.item : 'No hottest item found'} for ${hottestItem.price}
+      Welcome, {user}.<br />
+      The hottest item is {hottestItem ? hottestItem.item : 'No hottest item'} for {hottestItem ? hottestItem.price : '-'}$
     </div>
   );
 }

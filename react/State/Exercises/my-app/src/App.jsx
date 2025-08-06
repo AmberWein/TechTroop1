@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Hudini from "./Components/Hudini";
-import Landing from "./Components/Landing";
+import Landing from "./Components/Landing.jsx";
 import Home from "./Components/Home";
 
 import "./App.css";
