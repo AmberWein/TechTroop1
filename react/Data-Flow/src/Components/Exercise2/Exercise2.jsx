@@ -51,7 +51,14 @@ export default function Exercise2() {
           onContactClick={displayConvo}
         />
       ) : (
-        <Conversation />
+        <Conversation
+          sender={state.displayConversation}
+          convo={
+            state.conversations.find(
+              (c) => c.with === state.displayConversation
+            ).convo
+          }
+        />
       )}
     </div>
   );
