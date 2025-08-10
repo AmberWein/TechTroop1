@@ -36,10 +36,20 @@ export default function Exercise2() {
     ],
   });
 
+  const displayConvo = (name) => {
+    setState((prev) => ({
+      ...prev,
+      displayConversation: name,
+    }));
+  };
+
   return (
     <div>
       {state.displayConversation === null ? (
-        <List contacts={state.conversations.map((c) => c.with)} />
+        <List
+          contacts={state.conversations.map((c) => c.with)}
+          onContactClick={displayConvo}
+        />
       ) : (
         <Conversation />
       )}

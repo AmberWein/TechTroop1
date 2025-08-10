@@ -1,6 +1,6 @@
-export default function Contact({ name }) {
+export default function Contact({ name , onClick}) {
   return (
-    <div className="contact">
+    <div className="contact" onClick={onClick}>
       {name}
     </div>
   );
