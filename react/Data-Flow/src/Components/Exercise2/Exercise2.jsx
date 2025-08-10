@@ -11,8 +11,8 @@ export default function Exercise2() {
         convo: [
           { text: "Hi", sender: "self" },
           { text: "You there?", sender: "self" },
-          { text: "Yeah, hi, what's up?", sender: "other" }
-        ]
+          { text: "Yeah, hi, what's up?", sender: "other" },
+        ],
       },
       {
         with: "Dad",
@@ -20,8 +20,8 @@ export default function Exercise2() {
           { text: "Have you finished your school work yet?", sender: "other" },
           { text: "Yes.", sender: "self" },
           { text: "What do you mean, yes?", sender: "other" },
-          { text: "??", sender: "self" }
-        ]
+          { text: "??", sender: "self" },
+        ],
       },
       {
         with: "Shoobert",
@@ -30,16 +30,16 @@ export default function Exercise2() {
           { text: "Dude!!!!!!!!", sender: "other" },
           { text: "Shooooooooo BERT!", sender: "self" },
           { text: "You're my best friend", sender: "other" },
-          { text: "No, *you're* my best friend", sender: "self" }
-        ]
-      }
-    ]
+          { text: "No, *you're* my best friend", sender: "self" },
+        ],
+      },
+    ],
   });
 
   return (
     <div>
       {state.displayConversation === null ? (
-        <List />
+        <List contacts={state.conversations.map((c) => c.with)} />
       ) : (
         <Conversation />
       )}
