@@ -43,6 +43,10 @@ export default function Exercise2() {
     }));
   };
 
+  const goBack = () => {
+    setState((prev) => ({ ...prev, displayConversation: null }));
+  };
+
   return (
     <div>
       {state.displayConversation === null ? (
@@ -58,6 +62,7 @@ export default function Exercise2() {
               (c) => c.with === state.displayConversation
             ).convo
           }
+          onBack={goBack}
         />
       )}
     </div>
