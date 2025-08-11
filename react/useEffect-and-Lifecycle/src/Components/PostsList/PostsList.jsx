@@ -3,6 +3,7 @@ import "./PostsList.css";
 
 function PostsList() {
   const [posts, setPosts] = useState([]);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 600);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -13,8 +14,25 @@ function PostsList() {
       .catch((error) => console.error("error fetching posts:", error));
   }, []);
 
+  useEffect(() => {
+    // check screen size
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // initial check
+    handleResize();
+
+    // cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div className="posts-container">
+    <div className={`posts-container ${isSmallScreen ? "single-column" : ""}`}>
       {posts.map((post) => (
         <div key={post.id} className="post-card">
           <h3 className="post-title">{post.title}</h3>

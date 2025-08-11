@@ -21,3 +21,8 @@
   font-size: 14px;
   color: #555;
 }
+
+.single-column {
+  flex-direction: column;
+  align-items: center;
+}
