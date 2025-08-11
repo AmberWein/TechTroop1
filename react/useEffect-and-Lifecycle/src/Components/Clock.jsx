@@ -16,7 +16,7 @@ function Clock() {
 
   return (
     <div>
-      <h2>Current Time: {time.toLocaleTimeString()}</h2>
+      <h2>Current time: {time.toLocaleTimeString()}</h2>
     </div>
   );
 }
