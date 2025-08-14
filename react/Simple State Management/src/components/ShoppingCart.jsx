@@ -1,27 +1,51 @@
+import { useReducer } from "react";
+
+const initialState = {
+  items: [],
+  total: 0,
+  itemCount: 0
+};
+
 function ShoppingCart() {
-  const [items, setItems] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [itemCount, setItemCount] = useState(0);
-
-  const addItem = (product) => {
-    const newItems = [...items, { ...product, id: Date.now() }];
-    setItems(newItems);
-    setTotal(total + product.price);
-    setItemCount(itemCount + 1);
-  };
-
-  const removeItem = (id) => {
-    const newItems = items.filter(item => item.id !== id);
-    const removedItem = items.find(item => item.id === id);
-    setItems(newItems);
-    setTotal(total - removedItem.price);
-    setItemCount(itemCount - 1);
-  };
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   return (
     <div>
-      <h2>Shopping Cart ({itemCount} items) - Total: ${total}</h2>
-      {/* Render items */}
+      <h2>
+        Shopping cart ({state.itemCount} items) - total: ${state.total}
+      </h2>
+
+      <button
+        onClick={() =>
+          dispatch({
+            type: "ADD_ITEM",
+            data: { name: "Laptop", price: 999 }
+          })
+        }
+      >
+        Add laptop
+      </button>
+
+      <button onClick={() => dispatch({ type: "CLEAR_CART" })}>
+        Clear cart
+      </button>
+
+      <ul>
+        {state.items.map(item => (
+          <li key={item.id}>
+            {item.name} - ${item.price}{" "}
+            <button
+              onClick={() =>
+                dispatch({ type: "REMOVE_ITEM", data: item.id })
+              }
+            >
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
+export default ShoppingCart;
