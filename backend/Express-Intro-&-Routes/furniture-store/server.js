@@ -9,6 +9,7 @@ const store = [
     { name: "picture frame", inventory: 31, price: 70 }
 ]
 
+app.use(express.static("dist"));
 app.get("/", (req, res) => {
   res.send("Server is up and running smoothly");
 });
