@@ -20,3 +20,31 @@ document.getElementById("checkPriceBtn").addEventListener("click", async () => {
     document.getElementById("result").textContent = "Something went wrong.";
   }
 });
+
+// buy item
+document.getElementById("buyBtn").addEventListener("click", async () => {
+  const itemName = document.getElementById("buyInput").value.trim();
+
+  if (!itemName) {
+    document.getElementById("buyResult").textContent = "Please enter an item name.";
+    return;
+  }
+
+  try {
+    const response = await fetch(`/buy/${itemName}`);
+    const data = await response.json();
+
+    if (data.error) {
+      document.getElementById("buyResult").textContent = "Item not found.";
+    } else if (data.message) {
+      document.getElementById("buyResult").textContent = data.message;
+    } else {
+      document.getElementById("buyResult").textContent =
+        `Congratulations, you've just bought ${data.name} for $${data.price}. ` +
+        `There are ${data.inventory} left now in the store.`;
+    }
+  } catch (err) {
+    console.error("Error:", err);
+    document.getElementById("buyResult").textContent = "Something went wrong.";
+  }
+});
