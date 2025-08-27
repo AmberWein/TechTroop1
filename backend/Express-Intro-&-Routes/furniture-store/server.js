@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = 3000;
+const path = require("path");
 
 const store = [
     { name: "table", inventory: 3, price: 800 },
@@ -9,9 +10,10 @@ const store = [
     { name: "picture frame", inventory: 31, price: 70 }
 ]
 
-app.use(express.static("dist"));
+// app.use(express.static("dist"));
 app.get("/", (req, res) => {
-  res.send("Server is up and running smoothly");
+//   res.send("Server is up and running smoothly");
+res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 app.get("/priceCheck/:name", (req, res) => {
@@ -39,6 +41,20 @@ app.get("/buy/:name", (req, res) => {
   } else {
     res.send({ message: "Sorry, this item is out of stock." });
   }
+});
+
+app.get("/sale", (req, res) => {
+  const isAdmin = req.query.admin === "true";
+
+  if (isAdmin) {
+    store.forEach(item => {
+      if (item.inventory > 10) {
+        item.price = item.price / 2;
+      }
+    });
+  }
+
+  res.send(store);
 });
 
 app.listen(PORT, () => {
