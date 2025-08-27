@@ -25,6 +25,22 @@ app.get("/priceCheck/:name", (req, res) => {
   }
 });
 
+app.get("/buy/:name", (req, res) => {
+  const itemName = req.params.name.toLowerCase();
+  const item = store.find(product => product.name === itemName);
+
+  if (!item) {
+    return res.send({ error: "Item not found" });
+  }
+
+  if (item.inventory > 0) {
+    item.inventory -= 1;
+    res.send(item);
+  } else {
+    res.send({ message: "Sorry, this item is out of stock." });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
