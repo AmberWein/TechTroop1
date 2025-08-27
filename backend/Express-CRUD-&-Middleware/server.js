@@ -66,3 +66,14 @@ app.post("/sentence", (req, res) => {
     currentCount: -1
   });
 });
+
+app.delete("/word/:word", (req, res) => {
+  const word = req.params.word.toLowerCase();
+
+  if (!wordCounter[word]) {
+    return res.status(404).send({ error: `Word "${word}" not found` });
+  }
+
+  delete wordCounter[word];
+  res.status(200).send({ message: `Word "${word}" has been deleted` });
+});
