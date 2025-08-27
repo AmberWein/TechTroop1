@@ -39,3 +39,30 @@ app.post("/word", (req, res) => {
     currentCount: wordCounter[lowerWord]
   });
 });
+
+app.post("/sentence", (req, res) => {
+  const { sentence } = req.body;
+
+  if (!sentence || typeof sentence !== "string") {
+    return res.status(400).send({ error: "Please provide a valid sentence" });
+  }
+
+  const words = sentence.toLowerCase().split(/\s+/); // split by spaces
+  let numNewWords = 0;
+  let numOldWords = 0;
+
+  words.forEach(word => {
+    if (wordCounter[word]) {
+      wordCounter[word] += 1;
+      numOldWords += 1;
+    } else {
+      wordCounter[word] = 1;
+      numNewWords += 1;
+    }
+  });
+
+  res.send({
+    text: `Added ${numNewWords} words, ${numOldWords} already existed`,
+    currentCount: -1
+  });
+});
